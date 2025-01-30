@@ -7,13 +7,11 @@ defineProps({
 </script>
 
 <template>
-<h1>Categories Page</h1>
+    <h1>Categories Page</h1>
 
-<ul>
-    <li v-for="category in categories" :key="category.id">{{ category.name }} - {{ category.description }}</li>
-</ul>
+    <ul>
+        <li v-for="category in categories" :key="category.id">{{ category.name }} - {{ category.description }}</li>
+    </ul>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

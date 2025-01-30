@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 
 const message = ref("This is an Inertia App.")
 
@@ -7,7 +7,6 @@ const message = ref("This is an Inertia App.")
 
 <template>
 
-<h1>Hello World!</h1>
-<div>{{ message }}</div>
-
+    <h1>Hello World!</h1>
+    <div>{{ message }}</div>
 </template>
