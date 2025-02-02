@@ -15,17 +15,17 @@ defineProps({
     <div class="flex h-screen bg-gray-800 text-white">
         <!-- Sidebar (Categories) -->
         <div class="w-1/4 bg-gray-900 p-6 shadow-lg rounded-r-lg">
-            <h1 class="text-3xl font-bold mb-6 text-gray-300">Categories</h1>
-            <div class="space-y-4">
+            <Link href="/products" class="text-3xl font-bold text-gray-300 cursor-pointer">Categories</Link>
+            <div class="space-y-4 mt-6">
                 <Link v-for="category in categories" :key="category.id" :href="`/products/${category.id}`"
-                    class="block py-3 px-5 text-lg text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-all transform hover:scale-105 border-b border-gray-700">
+                    class="block py-3 px-5 text-sm text-white bg-gray-600 hover:bg-blue-700 rounded-lg transition-all transform hover:scale-105 border-b border-gray-700">
                 {{ category.name }}
                 </Link>
             </div>
         </div>
 
         <!-- Main Content (Products List) -->
-        <div class="flex-1 bg-gray-800 p-6">
+        <div class="flex-1 bg-gray-800 p-6 overflow-scroll" style="scrollbar-width: none;">
             <h1 class="text-3xl font-bold text-gray-100 mb-6">Products List</h1>
 
             <table class="min-w-full table-auto text-white">
@@ -41,8 +41,8 @@ defineProps({
                     <tr v-for="product in products" :key="product.id" class="hover:bg-gray-700 transition-all">
                         <td class="px-6 py-4">{{ product.name }}</td>
                         <td class="px-6 py-4">{{ product.category_id }}</td>
-                        <td class="px-6 py-4">{{ product.whole_sale_price }}</td>
-                        <td class="px-6 py-4">{{ product.retail_price }}</td>
+                        <td class="px-6 py-4">₱{{ product.whole_sale_price }}</td>
+                        <td class="px-6 py-4">₱{{ product.retail_price }}</td>
                     </tr>
                 </tbody>
             </table>
