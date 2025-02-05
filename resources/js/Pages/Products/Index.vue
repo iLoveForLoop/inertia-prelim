@@ -26,7 +26,14 @@ defineProps({
 
         <!-- Main Content (Products List) -->
         <div class="flex-1 bg-gray-800 p-6 overflow-scroll" style="scrollbar-width: none;">
-            <h1 class="text-3xl font-bold text-gray-100 mb-6">Products List</h1>
+            <div class="flex justify-between items-center w-full mb-5">
+                <h1 class="text-3xl font-bold text-gray-100 mb-6" style="margin: 0 !important;">Products List</h1>
+                <Link href="/categories"
+                    class="rounded-lg bg-gray-200 text-gray-900 font-semibold py-3 px-6 hover:bg-gray-600 hover:text-white transition duration-300 uppercase text-sm">
+                Category List
+                </Link>
+            </div>
+
 
             <table class="min-w-full table-auto text-white">
                 <thead>

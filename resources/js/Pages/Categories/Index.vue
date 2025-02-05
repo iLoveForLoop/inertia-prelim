@@ -20,7 +20,7 @@ defineProps({
         </div>
 
         <!-- Table Container -->
-        <div class="w-full mt-8 bg-gray-800 rounded-lg shadow-lg">
+        <div class="w-full mt-0 bg-gray-800  shadow-lg">
             <table class="min-w-full table-auto">
                 <!-- Table Header -->
                 <thead>
