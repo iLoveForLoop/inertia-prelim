@@ -1,20 +1,27 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+import MainLayout from '../MainLayout.vue';
+import ProductCard from '../../Components/ProductCard.vue';
+
 defineProps({
     products: {
         type: Array,
     },
     categories: {
         type: Array,
+    },
+    category:{
+        type: Object,
     }
 })
 
 </script>
 
 <template>
-    <div class="flex h-screen bg-gray-800 text-white">
+    <MainLayout>
+        <div class="flex h-screen bg-gray-800 text-white">
         <!-- Sidebar (Categories) -->
-        <div class="w-1/4 bg-gray-900 p-6 shadow-lg rounded-r-lg">
+        <!-- <div class="w-1/4 bg-gray-900 p-6 shadow-lg rounded-r-lg">
             <Link href="/products" class="text-3xl font-bold text-gray-300 cursor-pointer">Categories</Link>
             <div class="space-y-4 mt-6">
                 <Link v-for="category in categories" :key="category.id" :href="`/products/${category.id}`"
@@ -22,39 +29,34 @@ defineProps({
                 {{ category.name }}
                 </Link>
             </div>
-        </div>
+        </div> -->
 
         <!-- Main Content (Products List) -->
         <div class="flex-1 bg-gray-800 p-6 overflow-scroll" style="scrollbar-width: none;">
             <div class="flex justify-between items-center w-full mb-5">
-                <h1 class="text-3xl font-bold text-gray-100 mb-6" style="margin: 0 !important;">Products List</h1>
+                <h1 v-if="!category" class="text-3xl font-bold text-gray-100 mb-6" style="margin: 0 !important;">Products List</h1>
+
+                <h1 class="text-3xl font-bold text-gray-100 mb-6" style="margin: 0 !important;" v-if="category">{{ category.name }}</h1>
                 <Link href="/categories"
                     class="rounded-lg bg-gray-200 text-gray-900 font-semibold py-3 px-6 hover:bg-gray-600 hover:text-white transition duration-300 uppercase text-sm">
                 Category List
                 </Link>
+
+
             </div>
 
 
-            <table class="min-w-full table-auto text-white">
-                <thead>
-                    <tr class="border-b text-gray-400">
-                        <th class="px-6 py-3">Name</th>
-                        <th class="px-6 py-3">Category Id</th>
-                        <th class="px-6 py-3">Wholesale Price</th>
-                        <th class="px-6 py-3">Retail Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="product in products" :key="product.id" class="hover:bg-gray-700 transition-all">
-                        <td class="px-6 py-4">{{ product.name }}</td>
-                        <td class="px-6 py-4">{{ product.category_id }}</td>
-                        <td class="px-6 py-4">₱{{ product.whole_sale_price }}</td>
-                        <td class="px-6 py-4">₱{{ product.retail_price }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div v-for="product in products" :key="product.id">
+                    <ProductCard :product="product"/>
+                </div>
+
+            </div>
+
         </div>
     </div>
+    </MainLayout>
+
 </template>
 
 <style scoped>

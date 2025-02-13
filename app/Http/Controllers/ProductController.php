@@ -17,6 +17,6 @@ class ProductController extends Controller
             $products = $category->products()->orderBy('name', 'asc')->get();
         }
 
-        return inertia('Products/Index', compact('products', 'categories'));
+        return inertia('Products/Index', compact('products', 'categories', 'category'));
     }
 }
