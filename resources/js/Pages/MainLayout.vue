@@ -8,7 +8,7 @@ import { Link } from '@inertiajs/vue3';
   <nav class="bg-black p-0 md:p-5">
         <div class="flex flex-row justify-between items-start md:flex-row md:justify-between md:items-center">
             <div class="text-white text-2xl uppercase text-bold p-5 md:p-0">
-                <h1>My website</h1>
+                <h1>Ikinamada</h1>
             </div>
             <div class="hidden md:flex md:flex-row md:uppercase md:gap-4">
                 <Link href="/" class="text-white">Welcome</Link>

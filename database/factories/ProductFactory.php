@@ -23,7 +23,6 @@ class ProductFactory extends Factory
             'category_id' => Category::inRandomOrder()->first()->id,
             'whole_sale_price' => $this->faker->randomFloat(2, 5, 100),
             'retail_price' => $this->faker->randomFloat(2, 10, 200),
-
         ];
     }
 }
