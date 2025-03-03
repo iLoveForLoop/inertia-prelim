@@ -12,9 +12,9 @@ defineProps({
 
 const sidebarOpen = ref(false);
 
-// Auto-close drawer on small screens
+
 const checkScreenSize = () => {
-    sidebarOpen.value = window.innerWidth >= 640; // 'sm' breakpoint
+    sidebarOpen.value = window.innerWidth >= 640;
 };
 onMounted(() => {
     checkScreenSize();
@@ -25,7 +25,7 @@ onMounted(() => {
 <template>
     <MainLayout>
         <div class="flex h-screen bg-gray-800 text-white">
-            <!-- Sidebar (Drawer) -->
+
             <div class="w-full sm:w-1/3 md:w-1/4 bg-gray-900 p-4 sm:p-6 shadow-lg rounded-r-lg fixed sm:static inset-y-0 left-0 z-20 transform transition-transform duration-300 ease-in-out"
                 :class="{ 'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen }">
                 <div class="flex justify-between items-center mb-6">
@@ -46,9 +46,9 @@ onMounted(() => {
                 </div>
             </div>
 
-            <!-- Main Content -->
+
             <div class="flex-1 p-4 sm:p-6 overflow-y-auto scrollbar-hidden">
-                <!-- Drawer Toggle Icon (Hamburger) - Right Side -->
+
                 <button @click="sidebarOpen = true"
                     class="sm:hidden fixed top-4 right-4 z-30 text-white focus:outline-none"
                     :class="{ 'hidden': sidebarOpen }">
